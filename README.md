@@ -1,2 +1,4 @@
 # Crispylite
-A memory-only database, written in C
+3rd copy redis.
+
+I wrote it in C because python's garbage collection is annoying.
