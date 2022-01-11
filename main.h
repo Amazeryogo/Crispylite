@@ -40,3 +40,27 @@ int retrieve(char *key, struct data *head, char **value)
     }
     return -1;
 }
+int delete(char *key, struct data **head)
+{
+    struct data *current = *head;
+    struct data *previous = NULL;
+    while (current != NULL)
+    {
+        if (strcmp(current->key, key) == 0)
+        {
+            if (previous == NULL)
+            {
+                *head = current->next;
+            }
+            else
+            {
+                previous->next = current->next;
+            }
+            free(current);
+            return 0;
+        }
+        previous = current;
+        current = current->next;
+    }
+    return -1;
+}

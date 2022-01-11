@@ -1,10 +1,6 @@
-/* so basically a memory only database */
 #include "main.h"
 
 int main(){
-    /* ask for a input, if the first word is store, then store the key and value */
-    /* if the first word is retrieve, then retrieve the value */
-    /* if the first word is quit, then quit the program */
     char *input = NULL;
     size_t size = 0;
     struct data *head = NULL;
@@ -31,6 +27,17 @@ int main(){
             getchar();
             retrieve(key, head, &value);
             printf("value: %s\n", value);
+        }else if(strcmp(input, "delete") == 0){
+            char *key = NULL;
+            printf("key: ");
+            scanf("%m[^\n]", &key);
+            getchar();
+            delete(key, &head);
+        } else if(strcmp(input,"help") == 0){
+            printf("store: store a key and value\n");
+            printf("retrieve: retrieve a value\n");
+            printf("delete: delete a key\n");
+            printf("quit: quit the program\n");
         } else {
             printf("invalid input\n");
         }
